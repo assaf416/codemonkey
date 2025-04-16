@@ -7,6 +7,9 @@ class BusinessPolicy < ApplicationPolicy
     record.visible? || record_owner? || admin?
   end
 
+  def favorites? 
+    record.visible? || record_owner? || admin?
+  end   
   def permitted_attributes
     if user.permissions.active_subscription?
       default_attributes + notification_attributes

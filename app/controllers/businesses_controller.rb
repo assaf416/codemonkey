@@ -41,9 +41,11 @@ class BusinessesController < ApplicationController
   end
 
   def favorites 
-    #@business = Business.find(params[:business_id])
+    @business = Business.find(params[:business_id])
+    authorize @business
     @developers = [] 
     Developer.favorite(params[:business_id]).each{|fd| @developers << Developer.find(fd.developer_id)}
+    
   end
 
   private
