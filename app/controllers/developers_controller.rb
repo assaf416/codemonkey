@@ -57,6 +57,8 @@ class DevelopersController < ApplicationController
   end
 
   def toggle_favorites 
+    @developer = Developer.find(params[:developer_id])
+    authorize @developer
     current_user.business.toggle_favorites(params[:developer_id])
     redirect_to request.referrer
   end

@@ -6,6 +6,9 @@ class DeveloperPolicy < ApplicationPolicy
   def show?
     record.visible? || record_owner? || admin?
   end
+  def toggle_favorites?
+    record.visible? || record_owner? || admin?
+  end
 
   def share_profile?
     record_owner?
