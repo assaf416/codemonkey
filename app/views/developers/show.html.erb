@@ -1,0 +1,58 @@
+
+<%= open_graph_tags component: Developers::OpenGraphTagsComponent, developer: @developer %>
+
+<%= tag.meta id: "ignorePageView" if @public_key.present? %>
+
+<div class="max-w-5xl mx-auto mt-0 lg:mt-16 pb-8 mb-16 bg-white shadow lg:rounded-lg overflow-hidden">
+  <%= render Developers::CoverImageComponent.new(developer: @developer, classes: "lg:rounded-t-lg") %>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="-mt-12 sm:-mt-16 sm:flex sm:items-end sm:space-x-5">
+      <%= render AvatarComponent.new(avatarable: @developer, variant: :medium) %>
+    </div>
+  </div>
+
+  <div class="flex-1">
+    <div class="pt-6 pb-8 xl:pb-10">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-5xl lg:grid lg:grid-cols-3">
+        <div class="lg:col-span-2 lg:pr-8 lg:border-r lg:border-gray-200">
+          <div class="space-y-4">
+            <div class="md:flex md:items-start md:justify-between md:space-x-4 lg:border-b lg:pb-6">
+              <div class="w-full">
+                <h1 class="text-2xl font-bold text-gray-900"><%= @developer.hero %></h1>
+                <%= render Users::PaywalledComponent.new(current_user, @developer, size: :small, public_key: @public_key) do %>
+                  <div class="mt-2 flex items-center text-sm font-medium text-gray-500">
+                    <%= inline_svg_tag "icons/solid/user.svg", class: "flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400", aria_hidden: true %>
+                    <%= @developer.name %>
+                  </div>
+                <% end %>
+              </div>
+              <%= render Developers::PrimaryActionComponent.new(user: current_user, developer: @developer, business: current_user&.business, public_key: @public_key) %>
+              <%= render Developers::FavActionComponent.new(user: current_user, developer: @developer) %>
+            </div>
+
+            <%= render Developers::BadgesComponent.new(@developer) %>
+            <%= render Developers::SpecialtiesComponent.new(@developer.specialties, force_show: current_user == @developer.user) %>
+
+            <aside class="mt-8 lg:hidden">
+              <%= render "details", developer: @developer, public_key: @public_key %>
+            </aside>
+
+            <div class="pb-3 lg:pb-0">
+              <h2 class="sr-only"><%= t(".description") %></h2>
+              <div class="prose max-w-prose">
+                <%== @developer.rich_text_bio %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hidden lg:block lg:pl-8">
+          <%= render "details", developer: @developer, public_key: @public_key %>
+        
+        </aside>
+        
+      </div>
+    </div>
+  </div>
+</div>

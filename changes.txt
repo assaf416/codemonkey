@@ -1,0 +1,28 @@
+ modified:   app/components/developers/admin_component.html.erb
+        modified:   app/components/developers/card_component.html.erb
+        modified:   app/components/developers/query_component.html.erb
+        modified:   app/components/developers/search_status_component.html.erb
+        modified:   app/components/nav_bar/user_component.rb
+        modified:   app/controllers/businesses_controller.rb
+        modified:   app/controllers/developers_controller.rb
+        modified:   app/models/business.rb
+        modified:   app/models/developer.rb
+        modified:   app/models/user.rb
+        modified:   app/views/developers/show.html.erb
+        modified:   config/locales/en.yml
+        modified:   config/locales/es.yml
+        modified:   config/locales/fr.yml
+        modified:   config/routes.rb
+        modified:   db/schema.rb
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        app/components/developers/fav_action_component.html.erb
+        app/components/developers/fav_action_component.rb
+        app/models/favorite_developer.rb
+        app/views/businesses/_details.html.erb
+        app/views/businesses/favorites.erb
+        db/migrate/20250415204428_create_favorite_developers.rb
+        test/components/toggle_favorit_button_component_test.rb
+        test/fixtures/favorite_developers.yml
+        test/models/favorite_developer_test.rb

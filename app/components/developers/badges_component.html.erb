@@ -1,0 +1,29 @@
+<div class="flex flex-wrap items-start">
+  <% if featured? %>
+    <div class="mr-4 mb-2">
+      <%= render BadgeComponent.new(t(".featured"), color: "blue") %>
+    </div>
+  <% end %>
+
+  <% if high_response_rate? %>
+    <div class="mr-4 mb-2">
+      <%= render BadgeComponent.new(t(".high_response_rate"), color: "purple") %>
+    </div>
+  <% end %>
+
+  <% if source_contributor? %>
+    <div class="mr-4 mb-2">
+      <%= render BadgeComponent.new(t(".source_contributor"), color: "gray") %>
+    </div>
+  <% end %>
+
+  <% if recently_added? %>
+    <div class="mr-4 mb-2">
+      <%= render BadgeComponent.new(t(".recently_added"), color: "green") %>
+    </div>
+  <% elsif recently_updated? %>
+    <div class="mr-4 mb-2">
+      <%= render BadgeComponent.new(t(".recently_updated"), color: "green") %>
+    </div>
+  <% end %>
+</div>

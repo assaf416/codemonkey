@@ -1,0 +1,10 @@
+<%= render Developers::BannerComponent.new([
+      Developers::UnseededWarningComponent.new(seedable: Rails.env.development?),
+      Developers::InvisibleBannerComponent.new(current_user),
+      Developers::NewFieldsComponent.new(current_user)
+    ]) %>
+<%= render "shared/flash" %>
+
+<main class="mx-auto">
+  <%= yield %>
+</main>

@@ -1,0 +1,15 @@
+lovelace: <%= ActiveStorage::FixtureSet.blob(
+  filename: "lovelace.jpg"
+) %>
+
+mountains: <%= ActiveStorage::FixtureSet.blob(
+  filename: "mountains.jpg"
+) %>
+
+basecamp: <%= ActiveStorage::FixtureSet.blob(
+  filename: "basecamp.png"
+) %>
+
+agreement: <%= ActiveStorage::FixtureSet.blob(
+  filename: "agreement.pdf"
+) %>

@@ -1,0 +1,17 @@
+<%= render Admin::ContainerComponent.new do %>
+  <%= render Admin::HeadingComponent.new(t(".title")) %>
+
+  <% if @conversations.any? %>
+    <%= render Admin::ListComponent.new do |list| %>
+      <% @conversations.each do |conversation| %>
+        <% list.with_item conversation.developer.name, conversation.messages.last.body, path: conversation_path(conversation), subtitle: conversation.business.contact_name do |list_item| %>
+          <% list_item.with_aside do %>
+            <%= t(".blocked") %> <%= render TimeComponent.new(conversation.developer_blocked_at || conversation.business_blocked_at) %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= render EmptyStateComponent.new(t(".no_blocked_conversations"), "inbox") %>
+  <% end %>
+<% end %>
