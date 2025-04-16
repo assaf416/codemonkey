@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
     resources :developers, except: :destroy do
       post "toggle_favorites"
+      get "toggle_favorites"
       resources :messages, only: %i[new create], controller: :cold_messages
       resources :public_profiles, only: :new
     end
